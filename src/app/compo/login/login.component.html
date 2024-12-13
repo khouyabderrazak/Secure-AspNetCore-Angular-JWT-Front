@@ -1,0 +1,27 @@
+<div class="row" [ngStyle]="{'height':'100vh'}">
+    <form [formGroup]="form" (ngSubmit)="OnSubmit()" style="background-color: azure;"
+        class="col-sm-4 mx-auto p-4 my-auto shadow rounded">
+        <p *ngIf="errorMessage" class="text-danger text-center bg-white py-2">
+              {{ errorMessage }}
+        </p>
+        <div class="mb-3">
+            <label for="" class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="username" placeholder="enter username" />
+            <small *ngIf="form.get('username').invalid && (form.get('username').touched || isSubmited)"
+                class="form-text text-danger">user name required</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="enter password" />
+            <small *ngIf="form.get('password').invalid && (form.get('password').touched || isSubmited)"
+                class="form-text text-danger">password required</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Valider
+        </button>
+
+
+    </form>
+</div>
